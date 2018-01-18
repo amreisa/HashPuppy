@@ -32,20 +32,16 @@ MainWindow::MainWindow()
     setFixedHeight( sizeHint().height() );
 
     QStringList hashStrList;
-    qDebug() << "Available enums in" << QCryptographicHash::staticMetaObject.className() << ":" << QCryptographicHash::staticMetaObject.enumeratorCount();
-    int i =0;
-    QMetaEnum en = QCryptographicHash::staticMetaObject.enumerator( i++ );
+    QMetaEnum en = QCryptographicHash::staticMetaObject.enumerator( 0 );
     if( en.isValid() )
     {
         for( int num = 0 ; num < en.keyCount() ; num++ )
         {
-            qDebug() << en.key( num );
             hashStrList << en.key( num );
         }
     }
     else
     {
-        qDebug() << "error";
         hashStrList << "error";
     }
 
@@ -68,9 +64,9 @@ void MainWindow::on_calculateButton_clicked()
     progressBar->setMaximum( progress_max );
     progressBar->reset();
 
-    qDebug()<<static_cast<QCryptographicHash::Algorithm>( hashSelector->currentIndex() );
+    QMetaEnum m = QCryptographicHash::staticMetaObject.enumerator( 0 );
 
-    QCryptographicHash::Algorithm hash_alg = static_cast<QCryptographicHash::Algorithm>( hashSelector->currentIndex() );
+    QCryptographicHash::Algorithm hash_alg = static_cast<QCryptographicHash::Algorithm>( m.keyToValue( hashSelector->currentText().toStdString().c_str() ) );
     QCryptographicHash hash( hash_alg );
 
     cancel_calculation = false;
