@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Guy Rutenberg   *
- *   guyrutenberg@gmail.com   *
+ *   Copyright (C) 2009 by AmR EiSa   *
+ *   amreisa@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,13 +18,13 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include <QApplication>
-#include "main_window.h"
+#include "MainWindow.h"
 
-int main(int argc, char *argv[])
+int main( int argc, char *argv[] )
 {
-	QApplication app(argc, argv);
-	MainWindow *window = new MainWindow;
-	window->show();
-	return app.exec();
+    QApplication app( argc, argv );
+    MainWindow *window = new MainWindow;
+    window->show();
+    return app.exec();
 }
 

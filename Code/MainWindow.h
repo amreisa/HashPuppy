@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Guy Rutenberg   *
- *   guyrutenberg@gmail.com   *
+ *   Copyright (C) 2009 by AmR EiSa   *
+ *   amreisa@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,27 +22,27 @@
 
 #include <QMainWindow>
 
-#include "ui_main_window.h"
+#include "ui_MainWindow.h"
 
 class MainWindow : public QMainWindow, public Ui::MainWindow
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	MainWindow();
+    MainWindow();
 
 protected:
-	void dragEnterEvent(QDragEnterEvent *event);
-	void dropEvent(QDropEvent *event);
+    void dragEnterEvent( QDragEnterEvent *event );
+    void dropEvent( QDropEvent *event );
 
 private slots:
-	void on_calculateButton_clicked();
-	void on_cancelButton_clicked();
-	void on_fileEdit_textChanged(const QString &text);
-	void on_browseButton_clicked();
-	void on_copyButton_clicked();
+    void on_calculateButton_clicked();
+    void on_cancelButton_clicked();
+    void on_fileEdit_textChanged( const QString &text );
+    void on_browseButton_clicked();
+    void on_copyButton_clicked();
 
 private:
-	bool cancel_calculation;
+    bool cancel_calculation;
 };
 
 #endif
