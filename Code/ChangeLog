@@ -1,0 +1,5 @@
+Hash Puppy 0.2
+==============
+- Added a cancel button.
+- Improved layout.
+- Start calculating checksum immediately after selecting a file.
