@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include <QtGui>
+#include <QFileDialog>
 
 #include "main_window.h"
 
@@ -29,6 +30,26 @@ MainWindow::MainWindow()
 	progressBar->hide();
 
 	setFixedHeight(sizeHint().height());
+
+    const QMetaObject & mo = QCryptographicHash::staticMetaObject;
+    QStringList hashStrList;
+    qDebug() << "Available enums in" << mo.className() << ":" << mo.enumeratorCount();
+    int i =0;
+    QMetaEnum en = mo.enumerator(i++);
+    if ( en.isValid() )
+    {
+        for ( int num = 0 ; num < en.keyCount() ; num++ ) {
+            qDebug() << en.key(num);
+            hashStrList << en.key(num);
+        }
+    }
+    else
+    {
+        qDebug() << "error";
+        hashStrList << "error";
+    }
+
+    hashSelector->addItems( hashStrList );
 }
 
 void MainWindow::on_calculateButton_clicked()
@@ -47,8 +68,8 @@ void MainWindow::on_calculateButton_clicked()
 	progressBar->setMaximum(progress_max);
 	progressBar->reset();
 
-	QCryptographicHash::Algorithm hash_alg = static_cast<QCryptographicHash::Algorithm>(hashSelector->currentIndex());
-	QCryptographicHash hash(hash_alg);
+    QCryptographicHash::Algorithm hash_alg = static_cast<QCryptographicHash::Algorithm>(hashSelector->currentIndex());
+    QCryptographicHash hash(hash_alg);
 
 	cancel_calculation = false;
 
