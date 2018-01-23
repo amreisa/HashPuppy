@@ -14,7 +14,7 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Hash Puppy 0.2</string>
+   <string>Hash Puppy 0.3</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -141,6 +141,33 @@
      </layout>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLineEdit" name="textToCompareLineEdit"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="validateLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="comparePushButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Compare</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
        <widget class="QLabel" name="label_4">
@@ -176,7 +203,14 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionOpen"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
@@ -186,6 +220,11 @@ p, li { white-space: pre-wrap; }
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>

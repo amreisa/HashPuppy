@@ -41,6 +41,12 @@ private slots:
     void on_browseButton_clicked();
     void on_copyButton_clicked();
 
+    void on_actionOpen_triggered();
+
+    void on_actionAbout_triggered();
+
+    void on_comparePushButton_clicked();
+
 private:
     bool cancel_calculation;
 };

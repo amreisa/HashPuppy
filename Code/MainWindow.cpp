@@ -91,6 +91,8 @@ void MainWindow::on_calculateButton_clicked()
     cancelButton->hide();
     calculateButton->show();
     file.close();
+
+    comparePushButton->setEnabled( true );
 }
 
 void MainWindow::on_cancelButton_clicked()
@@ -146,4 +148,27 @@ void MainWindow::dropEvent( QDropEvent *event )
     QString fileName = urls.first().toLocalFile();
     fileEdit->setText( fileName );
     calculateButton->click();
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    emit on_browseButton_clicked();
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+}
+
+void MainWindow::on_comparePushButton_clicked()
+{
+    if ( fileEdit->text().isEmpty() )
+    {
+        // ask for if u want add file
+    }
+    else
+    {
+        if ( checksumEdit->text() == textToCompareLineEdit->text() )
+            validateLabel->setText( tr( "valid" ) );
+    }
+//    if ( checksumEdit->text().isEmpty() )
 }
